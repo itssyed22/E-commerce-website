@@ -1,0 +1,577 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(black 98%, yellow 2%);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+header .logo img {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Additional Navbar Styling */
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: #fca311;
+    color: #14213d;
+    border-radius: 5px;
+}
+
+header nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fca311;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s, left 0.3s;
+}
+
+header nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Dropdown Menu */
+
+header nav ul li:hover ul {
+    display: block;
+}
+
+header nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: #14213d;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    list-style: none;
+    min-width: 150px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul ul li {
+    width: 100%;
+}
+
+header nav ul ul li a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    white-space: nowrap;
+    border-bottom: 1px solid #333;
+}
+
+header nav ul ul li a:hover {
+    background-color: #fca311;
+    color: #14213d;
+}
+
+header nav ul ul li:last-child a {
+    border-bottom: none;
+}
+
+/* Responsive Navbar */
+
+@media (max-width: 768px) {
+    header nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #14213d;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    header nav.open {
+        transform: translateX(0);
+    }
+
+    header .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        z-index: 1100;
+    }
+
+    header .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    header .menu-toggle.open div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    header .menu-toggle.open div:nth-child(2) {
+        opacity: 0;
+    }
+
+    header .menu-toggle.open div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header nav ul li {
+        width: 100%;
+    }
+
+    header nav ul li a {
+        padding: 15px;
+        width: 100%;
+    }
+}
+
+
+.hero-section {
+    background: linear-gradient(black, rgb(0, 0, 41));
+    color: #fca311;
+    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-images-large {
+    width: 100%;
+    max-width: 300px; /* Adjust this value to make the image larger or smaller */
+}
+
+.hero-images-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.hero-images {
+    margin: 0 10px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.hero-img-top {
+    max-width: 600px; /* Adjust this value for the top image size */
+}
+
+.hero-img-bottom {
+    max-width: 300px;
+}
+
+.hero-content {
+    flex: 2;
+}
+
+.hero-section h1 {
+    font-size: 4em;
+    font-family: Georgia, sans-serif;
+}
+
+
+.hero-section p {
+    font-size: 1.2em;
+}
+
+/* Enhanced Order Now Button */
+.hero-section button {
+    background-color: #fca311;
+    color: #14213d;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-section button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-section button:hover {
+    background-color: #e09408;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.hero-section button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.hero-section button {
+    animation: pulse 2s infinite;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('pizza-pattern-1.png') repeat;
+    opacity: 0.05;
+}
+
+.menu-section {
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    color: #fca311;
+    background: linear-gradient(#000a34, rgb(67, 14, 14));
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('pizza-pattern.jpg') repeat;
+    opacity: 0.05;
+}
+
+.menu-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #fca311;
+    border-top: 2px solid #fca311;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 250px;
+    text-align: center;
+    color: #14213d;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    
+}
+
+.menu-item h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 1.2em;
+    color: #14213d;
+}
+
+.menu-item button {
+    background-color: #14213d;
+    color: #fca311;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-page {
+    background-color: #000312;
+}
+
+.menu-item button:hover {
+    background-color: #111;
+}
+
+.menu-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.menu-card {
+    position: relative;
+    width: 450px;
+    height: 650px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.menu-card:hover img {
+    transform: scale(1.1);
+}
+
+.card-head {
+    font-size: 2em;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #fca311;
+    border-top: 2px solid #fca311;
+}
+
+.menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.menu-card:hover .menu-overlay {
+    opacity: 1;
+}
+
+.menu-details {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.menu-card:hover .menu-details {
+    opacity: 1;
+}
+
+.contact-section {
+    padding: 50px 20px;
+    background-color: #14213d;
+    color: #fff;
+    text-align: center;
+    animation: slideInRight 1s ease-in-out;
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-section label {
+    font-size: 1em;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    
+}
+
+.contact-section button {
+    background-color: #fca311;
+    color: #14213d;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-section button:hover {
+    background-color: #e09408;
+}
+
+footer {
+    background-color: #14213d;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    background-color: #fca311;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+#back-to-top:hover {
+    background-color: #555;
+}
